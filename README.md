@@ -6,8 +6,8 @@ An open-source CLI tool that automatically probes any LLM endpoint for security 
 ## Installation
 
 ```bash
-git clone https://github.com/yourusername/LLMScan.git
-cd LLMScan
+git clone https://github.com/raju4199/LLM_Tools.git
+cd LLM_Tools
 pip install -r requirements.txt
 ```
 
