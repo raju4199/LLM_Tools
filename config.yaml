@@ -1,0 +1,21 @@
+llmscan:
+  version: "1.0"
+  timeout: 30          # seconds per request
+  max_retries: 2
+  delay_between_tests: 1  # seconds
+
+scoring:
+  PASS: green
+  FAIL: yellow
+  VULN: red
+
+report:
+  save_json: true
+  output_dir: "./reports"
+
+tests:
+  prompt_injection: true
+  jailbreak: true
+  system_prompt_leak: true
+  data_exfiltration: true
+  token_dos: true

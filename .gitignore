@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+env/
+
+# API Keys - NEVER commit these
+.env
+secrets.yaml
+api_keys.txt
+
+# Reports output
+reports/*.json
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
