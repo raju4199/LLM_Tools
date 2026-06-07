@@ -26,7 +26,7 @@ from probes.token_dos import TokenDoSProbe
 
 console = Console()
 
-BANNER = """
+BANNER = r"""
 [bold red]
  _     _     __  __  ____
 | |   | |   |  \/  |/ ___|  ___ __ _ _ __
