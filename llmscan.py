@@ -18,6 +18,7 @@ from connectors.openai_connector import OpenAIConnector
 from connectors.anthropic_connector import AnthropicConnector
 from connectors.ollama_connector import OllamaConnector
 from connectors.generic_http import GenericHTTPConnector
+from connectors.groq_connector import GroqConnector
 from probes.prompt_injection import PromptInjectionProbe
 from probes.jailbreak import JailbreakProbe
 from probes.system_prompt_leak import SystemPromptLeakProbe
@@ -58,6 +59,11 @@ def get_connector(provider, key, model, url):
         return AnthropicConnector(api_key=key, model=model or "claude-3-haiku-20240307")
     elif provider == "ollama":
         return OllamaConnector(model=model or "llama3")
+    elif provider == "groq":
+        if not key:
+            console.print("[red]Groq needs API key. Get free key at: https://console.groq.com[/red]")
+            raise SystemExit(1)
+        return GroqConnector(api_key=key, model=model or "llama3-8b-8192")
     elif provider == "http":
         return GenericHTTPConnector(url=url)
     else:
@@ -78,7 +84,7 @@ def score_grade(vuln_count, total):
         return "F", "red"
 
 @click.command()
-@click.option("--provider", required=True, type=click.Choice(["openai", "anthropic", "ollama", "http"]), help="LLM provider")
+@click.option("--provider", required=True, type=click.Choice(["openai", "anthropic", "ollama", "groq", "http"]), help="LLM provider")
 @click.option("--key", default=None, help="API key")
 @click.option("--model", default=None, help="Model name")
 @click.option("--url", default=None, help="Custom HTTP endpoint URL")
