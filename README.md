@@ -11,6 +11,11 @@ cd LLM_Tools
 pip install -r requirements.txt
 ```
 
+> **Kali Linux users:** If you get an `externally-managed-environment` error, run:
+> ```bash
+> pip install -r requirements.txt --break-system-packages
+> ```
+
 ## Usage
 
 ```bash
