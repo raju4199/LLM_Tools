@@ -23,6 +23,9 @@ from probes.jailbreak import JailbreakProbe
 from probes.system_prompt_leak import SystemPromptLeakProbe
 from probes.data_exfiltration import DataExfiltrationProbe
 from probes.token_dos import TokenDoSProbe
+from probes.multi_turn import MultiTurnProbe
+from probes.encoding_attacks import EncodingAttackProbe
+from probes.bias_toxicity import BiasToxicityProbe
 
 console = Console()
 
@@ -38,11 +41,14 @@ BANNER = r"""
 """
 
 PROBES = {
-    "prompt_injection": PromptInjectionProbe,
-    "jailbreak": JailbreakProbe,
+    "prompt_injection":   PromptInjectionProbe,
+    "jailbreak":          JailbreakProbe,
     "system_prompt_leak": SystemPromptLeakProbe,
-    "data_exfiltration": DataExfiltrationProbe,
-    "token_dos": TokenDoSProbe,
+    "data_exfiltration":  DataExfiltrationProbe,
+    "token_dos":          TokenDoSProbe,
+    "multi_turn":         MultiTurnProbe,
+    "encoding_attacks":   EncodingAttackProbe,
+    "bias_toxicity":      BiasToxicityProbe,
 }
 
 def get_connector(provider, key, model, url):
